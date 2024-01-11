@@ -8,6 +8,11 @@ const listData = async (req, res) => {
       orderBy: {
         id: "asc",
       },
+      select: {
+        username: true,
+        password: true,
+        createdAt: true,
+      },
     });
 
     return res.status(200).json({
