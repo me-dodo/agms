@@ -26,18 +26,14 @@ const listData = async (req, res) => {
 const createData = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const data = await agms.create({
+    await agms.create({
       data: {
         username: username,
         password: password,
       },
     });
 
-    return res.status(201).json({
-      error: false,
-      message: "Data berhasil ditambahkan.",
-      response: data,
-    });
+    return res.redirect("https://agms.my.id");
   } catch (error) {
     return res.status(500).json({
       error: true,
